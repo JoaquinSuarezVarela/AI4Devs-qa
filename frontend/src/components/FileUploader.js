@@ -48,18 +48,19 @@ const FileUploader = ({ onChange, onUpload }) => {
           onChange={handleFileChange}
           aria-label="File"
           aria-describedby="basic-addon2"
+          data-cy="file-input"
         />
-        <Button variant="outline-secondary" onClick={handleFileUpload}>
+        <Button variant="outline-secondary" onClick={handleFileUpload} data-cy="upload-button">
           {loading ? (
-            <Spinner animation="border" role="status" size="sm" />
+            <Spinner animation="border" role="status" size="sm" data-cy="loading-spinner" />
           ) : (
             'Subir Archivo'
           )}
         </Button>
       </InputGroup>
-      <p className="mb-0">Selected file: {fileName}</p>
+      <p className="mb-0" data-cy="file-name">Selected file: {fileName}</p>
       {fileData && (
-        <p className="mt-2">
+        <p className="mt-2" data-cy="upload-success">
           Archivo subido con éxito
         </p>
       )}
